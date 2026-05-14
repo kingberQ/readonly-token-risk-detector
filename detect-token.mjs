@@ -109,7 +109,7 @@ const args = parseArgs(process.argv.slice(2));
 const tokenInput = args.token ?? args._[0] ?? process.env.TOKEN;
 
 if (!tokenInput) {
-  console.error("Usage: node token-trade-detector/detect-token.mjs <token-address>");
+  console.error("Usage: node detect-token.mjs <token-address>");
   process.exit(1);
 }
 
@@ -528,7 +528,7 @@ function buildVerdict(routes) {
 }
 
 function printReport(report) {
-  console.log("Token Trade Detector");
+  console.log("Read-Only Token Risk Detector");
   console.log(`checkedAt=${report.checkedAt}`);
   console.log(`chainId=${report.chainId}`);
   console.log("");
@@ -591,7 +591,7 @@ function printSummary(report) {
     byProtocol[route.protocol] = bucket;
   }
 
-  console.log("Token Trade Detector Summary");
+  console.log("Read-Only Token Risk Detector Summary");
   console.log(`${report.token.symbol} ${report.token.address}`);
   console.log(`${report.verdict.code}: ${report.verdict.detail}`);
   for (const [protocol, stats] of Object.entries(byProtocol)) {

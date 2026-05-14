@@ -85,7 +85,7 @@ V4_POOL_ID              Optional. If omitted, the script computes it.
 Example normal output:
 
 ```text
-Token Trade Detector Summary
+Read-Only Token Risk Detector Summary
 USDT 0xdAC17F958D2ee523a2206206994597C13D831ec7
 DIRECT_BUY_SELL_QUOTES_AVAILABLE: At least one direct route produced positive buy and sell quotes.
 UniswapV2: routes=4, active=4, sellQuotes=4, buyQuotes=4
@@ -104,7 +104,7 @@ This means:
 Example risky v4 output:
 
 ```text
-Token Trade Detector Summary
+Read-Only Token Risk Detector Summary
 ePow 0xd59F8832023f6c9AC5EC7B7154893925bef9fBf7
 POOLS_FOUND_BUT_NO_SELL_QUOTE: At least one pool exists, but no checked route produced a positive sell quote.
 UniswapV4: routes=1, active=0, sellQuotes=0, buyQuotes=0
@@ -200,7 +200,7 @@ If a known v4 PoolKey exists, pass it manually for deterministic inspection.
 1. Run summary mode:
 
 ```bash
-SUMMARY=1 node token-trade-detector/detect-token.mjs <token-address>
+SUMMARY=1 node detect-token.mjs <token-address>
 ```
 
 2. If output is `DIRECT_BUY_SELL_QUOTES_AVAILABLE`, report that direct Uniswap quotes exist and include best sell prices.
@@ -227,11 +227,11 @@ SUMMARY=1 node token-trade-detector/detect-token.mjs <token-address>
 Normal token:
 
 ```bash
-SUMMARY=1 V4_SCAN_BLOCKS=0 node token-trade-detector/detect-token.mjs 0xdAC17F958D2ee523a2206206994597C13D831ec7
+SUMMARY=1 V4_SCAN_BLOCKS=0 node detect-token.mjs 0xdAC17F958D2ee523a2206206994597C13D831ec7
 ```
 
 Risky v4 sample:
 
 ```bash
-SUMMARY=1 V4_SCAN_BLOCKS=200000 node token-trade-detector/detect-token.mjs 0xd59F8832023f6c9AC5EC7B7154893925bef9fBf7
+SUMMARY=1 V4_SCAN_BLOCKS=200000 node detect-token.mjs 0xd59F8832023f6c9AC5EC7B7154893925bef9fBf7
 ```

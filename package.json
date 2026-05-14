@@ -1,0 +1,11 @@
+{
+  "name": "readonly-token-risk-detector",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "detect": "node detect-token.mjs"
+  },
+  "dependencies": {
+    "ethers": "^6.16.0"
+  }
+}
